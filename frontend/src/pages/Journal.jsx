@@ -19,6 +19,7 @@ import { api } from '../services/api';
 
 export default function Journal({ setActiveTab }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [journalSessionToken, setJournalSessionToken] = useState(null);
   const [pinInput, setPinInput] = useState('');
   const [pinError, setPinError] = useState('');
   const [verifying, setVerifying] = useState(false);
@@ -50,26 +51,22 @@ export default function Journal({ setActiveTab }) {
       const res = await api.verifyJournalPin(pinInput);
       if (res.authenticated) {
         setIsAuthenticated(true);
-        loadEntries();
+        setJournalSessionToken(res.sessionToken);
+        loadEntries(res.sessionToken);
       } else {
-        setPinError('Incorrect PIN. Default is 1234.');
+        setPinError('Incorrect PIN.');
       }
     } catch (err) {
-      if (pinInput === '1234') {
-        setIsAuthenticated(true);
-        loadEntries();
-      } else {
-        setPinError('Incorrect PIN. Default is 1234.');
-      }
+      setPinError('Incorrect PIN or journal service unavailable.');
     } finally {
       setVerifying(false);
     }
   };
 
-  const loadEntries = async () => {
+  const loadEntries = async (sessionToken = journalSessionToken) => {
     try {
       setLoadingEntries(true);
-      const res = await api.getJournalEntries();
+      const res = await api.getJournalEntries(sessionToken);
       setEntries(res || []);
     } catch (err) {
       console.error('Failed to load journal entries:', err);
@@ -88,13 +85,13 @@ export default function Journal({ setActiveTab }) {
           title: noteTitle.trim() || 'Untitled',
           content: noteContent.trim(),
           moodTag: noteMoodTag
-        });
+        }, journalSessionToken);
       } else {
         await api.createJournalEntry({
           title: noteTitle.trim() || 'Untitled',
           content: noteContent.trim(),
           moodTag: noteMoodTag
-        });
+        }, journalSessionToken);
       }
 
       setIsCreating(false);
@@ -111,7 +108,7 @@ export default function Journal({ setActiveTab }) {
   const handleDeleteNote = async (id) => {
     if (!window.confirm('Delete this private journal note?')) return;
     try {
-      await api.deleteJournalEntry(id);
+      await api.deleteJournalEntry(id, journalSessionToken);
       loadEntries();
     } catch (err) {
       console.error('Failed to delete note:', err);
@@ -139,7 +136,7 @@ export default function Journal({ setActiveTab }) {
       return;
     }
     try {
-      await api.setJournalPin(newPinValue);
+      await api.setJournalPin(newPinValue, journalSessionToken);
       alert('PIN updated successfully!');
       setIsChangingPin(false);
       setNewPinValue('');

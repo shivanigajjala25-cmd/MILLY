@@ -286,8 +286,9 @@ public class ResponseEngineService {
     private String getRecommendedAction(String intent) {
         switch (intent) {
             case "panic":
+                return "breathing";
             case "anxiety":
-                return "none";
+                return "grounding";
             case "flashback":
             case "trigger":
             case "nightmare":

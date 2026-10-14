@@ -10,7 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * PRIVATE JOURNAL REST CONTROLLER.
@@ -24,8 +28,9 @@ public class JournalController {
     private final JournalEntryRepository journalRepository;
     private final UserRepository userRepository;
 
-    // Default prototype PIN: "1234"
-    private static final String DEFAULT_PIN = "1234";
+    private static final String DEFAULT_PIN_HASH = hashPin("1234");
+    private static final String SESSION_HEADER = "X-Journal-Session";
+    private final Map<String, LocalDateTime> activeSessions = new ConcurrentHashMap<>();
 
     public JournalController(JournalEntryRepository journalRepository, UserRepository userRepository) {
         this.journalRepository = journalRepository;
@@ -38,10 +43,18 @@ public class JournalController {
         Map<String, Object> resp = new HashMap<>();
 
         Optional<User> userOpt = userRepository.findById(1L);
-        String correctPin = userOpt.map(User::getPinHash).orElse(DEFAULT_PIN);
+        String correctPin = userOpt.map(User::getPinHash).orElse(DEFAULT_PIN_HASH);
 
-        if (enteredPin != null && enteredPin.equals(correctPin)) {
+        if (enteredPin != null && pinMatches(enteredPin, correctPin)) {
+            if (userOpt.isPresent() && !correctPin.startsWith("sha256:")) {
+                User user = userOpt.get();
+                user.setPinHash(hashPin(enteredPin));
+                userRepository.save(user);
+            }
+            String sessionToken = UUID.randomUUID().toString();
+            activeSessions.put(sessionToken, LocalDateTime.now());
             resp.put("authenticated", true);
+            resp.put("sessionToken", sessionToken);
             resp.put("message", "PIN verified successfully.");
             return ResponseEntity.ok(resp);
         } else {
@@ -52,18 +65,26 @@ public class JournalController {
     }
 
     @PostMapping("/set-pin")
-    public ResponseEntity<Map<String, Object>> setPin(@RequestBody Map<String, String> payload) {
+    public ResponseEntity<Map<String, Object>> setPin(
+            @RequestHeader(value = SESSION_HEADER, required = false) String sessionToken,
+            @RequestBody Map<String, String> payload) {
         String newPin = payload.get("pin");
         Map<String, Object> resp = new HashMap<>();
 
-        if (newPin == null || newPin.length() < 4) {
+        if (!isAuthenticated(sessionToken)) {
+            resp.put("success", false);
+            resp.put("message", "Journal authentication required.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(resp);
+        }
+
+        if (newPin == null || !newPin.matches("\\d{4,}")) {
             resp.put("success", false);
             resp.put("message", "PIN must be at least 4 digits.");
             return ResponseEntity.badRequest().body(resp);
         }
 
-        User user = userRepository.findById(1L).orElse(new User("demo_user", DEFAULT_PIN));
-        user.setPinHash(newPin);
+        User user = userRepository.findById(1L).orElse(new User("demo_user", DEFAULT_PIN_HASH));
+        user.setPinHash(hashPin(newPin));
         userRepository.save(user);
 
         resp.put("success", true);
@@ -72,12 +93,21 @@ public class JournalController {
     }
 
     @GetMapping
-    public ResponseEntity<List<JournalEntry>> getEntries() {
+    public ResponseEntity<List<JournalEntry>> getEntries(
+            @RequestHeader(value = SESSION_HEADER, required = false) String sessionToken) {
+        if (!isAuthenticated(sessionToken)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
         return ResponseEntity.ok(journalRepository.findByUserIdOrderByCreatedAtDesc(1L));
     }
 
     @PostMapping
-    public ResponseEntity<JournalEntry> createEntry(@RequestBody JournalRequest request) {
+    public ResponseEntity<JournalEntry> createEntry(
+            @RequestHeader(value = SESSION_HEADER, required = false) String sessionToken,
+            @RequestBody JournalRequest request) {
+        if (!isAuthenticated(sessionToken)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
         JournalEntry entry = new JournalEntry(
                 request.getTitle() != null ? request.getTitle() : "Untitled Entry",
                 request.getContent() != null ? request.getContent() : "",
@@ -88,7 +118,12 @@ public class JournalController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<JournalEntry> updateEntry(@PathVariable Long id, @RequestBody JournalRequest request) {
+    public ResponseEntity<JournalEntry> updateEntry(
+            @RequestHeader(value = SESSION_HEADER, required = false) String sessionToken,
+            @PathVariable Long id, @RequestBody JournalRequest request) {
+        if (!isAuthenticated(sessionToken)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
         Optional<JournalEntry> opt = journalRepository.findById(id);
         if (opt.isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -102,11 +137,48 @@ public class JournalController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> deleteEntry(@PathVariable Long id) {
+    public ResponseEntity<Map<String, Object>> deleteEntry(
+            @RequestHeader(value = SESSION_HEADER, required = false) String sessionToken,
+            @PathVariable Long id) {
+        if (!isAuthenticated(sessionToken)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        if (!journalRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
         journalRepository.deleteById(id);
         Map<String, Object> resp = new HashMap<>();
         resp.put("success", true);
         resp.put("message", "Journal entry deleted.");
         return ResponseEntity.ok(resp);
+    }
+
+    private boolean isAuthenticated(String sessionToken) {
+        if (sessionToken == null) {
+            return false;
+        }
+        LocalDateTime issuedAt = activeSessions.get(sessionToken);
+        if (issuedAt == null) {
+            return false;
+        }
+        if (issuedAt.plusMinutes(30).isBefore(LocalDateTime.now())) {
+            activeSessions.remove(sessionToken);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean pinMatches(String enteredPin, String storedPin) {
+        return storedPin != null && (storedPin.equals(enteredPin) || storedPin.equals(hashPin(enteredPin)));
+    }
+
+    private static String hashPin(String pin) {
+        try {
+            byte[] digest = MessageDigest.getInstance("SHA-256")
+                    .digest(pin.getBytes(StandardCharsets.UTF_8));
+            return "sha256:" + HexFormat.of().formatHex(digest);
+        } catch (NoSuchAlgorithmException exception) {
+            throw new IllegalStateException("SHA-256 is unavailable", exception);
+        }
     }
 }

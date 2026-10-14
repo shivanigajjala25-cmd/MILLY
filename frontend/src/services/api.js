@@ -72,47 +72,52 @@ export const api = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ pin })
     });
-    return res.json();
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || 'Invalid journal PIN');
+    return data;
   },
 
-  setJournalPin: async (pin) => {
+  setJournalPin: async (pin, sessionToken) => {
     const res = await fetch(`${BASE_URL}/journal/set-pin`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Journal-Session': sessionToken },
       body: JSON.stringify({ pin })
     });
     return res.json();
   },
 
-  getJournalEntries: async () => {
-    const res = await fetch(`${BASE_URL}/journal`);
+  getJournalEntries: async (sessionToken) => {
+    const res = await fetch(`${BASE_URL}/journal`, {
+      headers: { 'X-Journal-Session': sessionToken }
+    });
     if (!res.ok) throw new Error('Failed to fetch journal entries');
     return res.json();
   },
 
-  createJournalEntry: async (entry) => {
+  createJournalEntry: async (entry, sessionToken) => {
     const res = await fetch(`${BASE_URL}/journal`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Journal-Session': sessionToken },
       body: JSON.stringify(entry)
     });
     if (!res.ok) throw new Error('Failed to save journal entry');
     return res.json();
   },
 
-  updateJournalEntry: async (id, entry) => {
+  updateJournalEntry: async (id, entry, sessionToken) => {
     const res = await fetch(`${BASE_URL}/journal/${id}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Journal-Session': sessionToken },
       body: JSON.stringify(entry)
     });
     if (!res.ok) throw new Error('Failed to update journal entry');
     return res.json();
   },
 
-  deleteJournalEntry: async (id) => {
+  deleteJournalEntry: async (id, sessionToken) => {
     const res = await fetch(`${BASE_URL}/journal/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: { 'X-Journal-Session': sessionToken }
     });
     if (!res.ok) throw new Error('Failed to delete journal entry');
     return res.json();
