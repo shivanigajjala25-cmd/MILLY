@@ -19,7 +19,6 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
 public class ChatController {
 
     private final IntentClassifierService intentClassifier;

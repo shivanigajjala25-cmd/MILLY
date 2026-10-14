@@ -1,3 +1,7 @@
+# Local and deployed SQLite data
+*.db
+*.db-shm
+*.db-wal
 # Frontend generated files
 frontend/node_modules/
 frontend/dist/

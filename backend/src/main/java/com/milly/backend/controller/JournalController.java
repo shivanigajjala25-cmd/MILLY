@@ -10,11 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * PRIVATE JOURNAL REST CONTROLLER.
@@ -22,14 +20,13 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @RestController
 @RequestMapping("/api/journal")
-@CrossOrigin(origins = "*")
 public class JournalController {
 
     private final JournalEntryRepository journalRepository;
     private final UserRepository userRepository;
 
-    private static final String DEFAULT_PIN_HASH = hashPin("1234");
     private static final String SESSION_HEADER = "X-Journal-Session";
+    private static final BCryptPasswordEncoder PIN_ENCODER = new BCryptPasswordEncoder();
     private final Map<String, LocalDateTime> activeSessions = new ConcurrentHashMap<>();
 
     public JournalController(JournalEntryRepository journalRepository, UserRepository userRepository) {
@@ -43,10 +40,10 @@ public class JournalController {
         Map<String, Object> resp = new HashMap<>();
 
         Optional<User> userOpt = userRepository.findById(1L);
-        String correctPin = userOpt.map(User::getPinHash).orElse(DEFAULT_PIN_HASH);
+        String correctPin = userOpt.map(User::getPinHash).orElse(null);
 
         if (enteredPin != null && pinMatches(enteredPin, correctPin)) {
-            if (userOpt.isPresent() && !correctPin.startsWith("sha256:")) {
+            if (!correctPin.startsWith("bcrypt:")) {
                 User user = userOpt.get();
                 user.setPinHash(hashPin(enteredPin));
                 userRepository.save(user);
@@ -77,13 +74,13 @@ public class JournalController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(resp);
         }
 
-        if (newPin == null || !newPin.matches("\\d{4,}")) {
+        if (newPin == null || !newPin.matches("\\d{8,}")) {
             resp.put("success", false);
-            resp.put("message", "PIN must be at least 4 digits.");
+            resp.put("message", "PIN must be at least 8 digits.");
             return ResponseEntity.badRequest().body(resp);
         }
 
-        User user = userRepository.findById(1L).orElse(new User("demo_user", DEFAULT_PIN_HASH));
+        User user = userRepository.findById(1L).orElse(new User("demo_user", hashPin("1234")));
         user.setPinHash(hashPin(newPin));
         userRepository.save(user);
 
@@ -169,15 +166,28 @@ public class JournalController {
     }
 
     private boolean pinMatches(String enteredPin, String storedPin) {
-        return storedPin != null && (storedPin.equals(enteredPin) || storedPin.equals(hashPin(enteredPin)));
+        if (storedPin == null) {
+            return false;
+        }
+        if (storedPin.startsWith("bcrypt:")) {
+            return PIN_ENCODER.matches(enteredPin, storedPin.substring("bcrypt:".length()));
+        }
+        if (storedPin.startsWith("sha256:")) {
+            return storedPin.equals(hashLegacyPin(enteredPin));
+        }
+        return storedPin.equals(enteredPin);
     }
 
     private static String hashPin(String pin) {
+        return "bcrypt:" + PIN_ENCODER.encode(pin);
+    }
+
+    private static String hashLegacyPin(String pin) {
         try {
-            byte[] digest = MessageDigest.getInstance("SHA-256")
-                    .digest(pin.getBytes(StandardCharsets.UTF_8));
+            byte[] digest = java.security.MessageDigest.getInstance("SHA-256")
+                    .digest(pin.getBytes(java.nio.charset.StandardCharsets.UTF_8));
             return "sha256:" + HexFormat.of().formatHex(digest);
-        } catch (NoSuchAlgorithmException exception) {
+        } catch (java.security.NoSuchAlgorithmException exception) {
             throw new IllegalStateException("SHA-256 is unavailable", exception);
         }
     }

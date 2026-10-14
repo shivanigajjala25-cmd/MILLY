@@ -41,7 +41,7 @@ export default function Journal({ setActiveTab }) {
   const handleVerifyPin = async (e) => {
     e?.preventDefault();
     if (!pinInput || pinInput.length < 4) {
-      setPinError('Please enter a 4-digit PIN');
+      setPinError('Please enter your PIN');
       return;
     }
 
@@ -131,8 +131,8 @@ export default function Journal({ setActiveTab }) {
 
   const handleChangePin = async (e) => {
     e.preventDefault();
-    if (newPinValue.length < 4) {
-      alert('PIN must be at least 4 digits');
+    if (!/^\d{8,}$/.test(newPinValue)) {
+      alert('PIN must be at least 8 digits');
       return;
     }
     try {
@@ -186,18 +186,16 @@ export default function Journal({ setActiveTab }) {
             <p className="text-xs text-[#718096] mt-1">
               Enter your PIN to open your private reflections.
             </p>
-            <p className="text-[11px] text-[#3d695d] font-mono mt-1">
-              (Prototype default: <strong>1234</strong>)
-            </p>
           </div>
 
           <form onSubmit={handleVerifyPin} className="space-y-4">
             <input
               type="password"
-              maxLength={8}
+              maxLength={32}
+              inputMode="numeric"
               value={pinInput}
               onChange={(e) => setPinInput(e.target.value)}
-              placeholder="••••"
+              placeholder="Journal PIN"
               className="w-40 mx-auto text-center tracking-widest text-2xl font-mono px-4 py-2.5 bg-[#fbfaf8] rounded-2xl border border-[#ded8cc] focus:outline-hidden focus:border-[#3d695d]"
               autoFocus
             />
@@ -273,10 +271,11 @@ export default function Journal({ setActiveTab }) {
               <form onSubmit={handleChangePin} className="flex gap-2">
                 <input
                   type="password"
-                  maxLength={8}
+                  maxLength={32}
+                  inputMode="numeric"
                   value={newPinValue}
                   onChange={(e) => setNewPinValue(e.target.value)}
-                  placeholder="New 4+ digit PIN"
+                  placeholder="New 8+ digit PIN"
                   className="px-3 py-1.5 bg-[#fbfaf8] border rounded-xl text-xs font-mono"
                 />
                 <button

@@ -12,7 +12,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/grounding")
-@CrossOrigin(origins = "*")
 public class GroundingController {
 
     private final GroundingSessionRepository groundingRepository;

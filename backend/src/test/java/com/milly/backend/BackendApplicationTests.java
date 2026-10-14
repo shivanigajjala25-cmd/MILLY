@@ -1,6 +1,7 @@
 package com.milly.backend;
 
 import com.milly.backend.controller.ChatController;
+import com.milly.backend.controller.JournalController;
 import com.milly.backend.dto.ChatRequest;
 import com.milly.backend.dto.ChatResponse;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -16,6 +19,9 @@ class BackendApplicationTests {
 
 	@Autowired
 	private ChatController chatController;
+
+	@Autowired
+	private JournalController journalController;
 
 	@Test
 	@DisplayName("Context Loads Successfully")
@@ -86,5 +92,18 @@ class BackendApplicationTests {
 		assertEquals("crisis", body.getIntent());
 		assertEquals("emergency", body.getRecommendedAction());
 		assertTrue(body.getResponse().contains("immediate human support") || body.getResponse().contains("emergency services"));
+	}
+
+	@Test
+	@DisplayName("Journal requires a PIN-issued session")
+	void journalRequiresPinIssuedSession() {
+		assertEquals(401, journalController.getEntries(null).getStatusCode().value());
+		assertEquals(401, journalController.getEntries("invalid-session").getStatusCode().value());
+
+		ResponseEntity<Map<String, Object>> pinResponse = journalController.verifyPin(Map.of("pin", "1234"));
+		assertEquals(200, pinResponse.getStatusCode().value());
+		String sessionToken = (String) pinResponse.getBody().get("sessionToken");
+		assertNotNull(sessionToken);
+		assertEquals(200, journalController.getEntries(sessionToken).getStatusCode().value());
 	}
 }

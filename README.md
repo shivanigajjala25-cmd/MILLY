@@ -240,15 +240,62 @@ npm run dev
 The frontend dev server starts at `http://localhost:5173`. Open your browser at `http://localhost:5173`.
 
 ### Step 3: Run Automated Test Suite
-To verify all 6 demo scenarios:
+To run the backend test suite:
 ```bash
 cd backend
 .\mvnw.cmd test
 ```
 
+## 11. Public Demo Deployment (Render + Vercel)
+
+> **Deployment scope:** This is a single-user educational prototype, not a production healthcare service. The wellness endpoints do not authenticate users, journal sessions are held in backend memory, and journal content is stored as plaintext in SQLite. There is no login system for wellness data, rate limiting, or clinical safety monitoring. Do not enter real journal entries, health information, or other sensitive personal data. Use synthetic demo data only.
+
+This setup hosts the Spring Boot API on Render with a persistent disk for SQLite and the Vite frontend on Vercel. Run only one backend instance because SQLite and journal sessions are not configured for horizontal scaling.
+
+### 1. Deploy the backend to Render
+
+1. Push the project to GitHub and create a Render **Web Service** connected to the `MILLY` repository and `main` branch.
+2. Set **Root Directory** to `backend`, choose **Docker**, and select a plan that supports a persistent disk.
+3. Add a disk named `milly-data`, mounted at `/data`. Keep the service at one instance.
+4. Add these environment variables in Render. Generate a unique PIN of at least 8 digits and enter it directly in Render; do not put it in GitHub or a checked-in `.env` file.
+
+  | Name | Value |
+  | --- | --- |
+  | `DATA_DIR` | `/data` |
+  | `APP_DEMO_DATA_ENABLED` | `false` |
+  | `MILLY_INITIAL_JOURNAL_PIN` | A private PIN with at least 8 digits |
+  | `APP_CORS_ALLOWED_ORIGINS` | The exact Vercel site origin, added in step 3 |
+
+5. Set the health check path to `/api/health` and deploy. Render supplies `PORT` automatically.
+6. Open `https://<your-render-service>.onrender.com/api/health`. Continue only when the response reports `UP` and both models are ready.
+
+The initial PIN is stored using BCrypt. If a database already exists on the persistent disk, initialization will keep that database and will not reseed its contents. The checked-in SQLite file is removed from the next Git revision, but remains in earlier Git history; rewrite repository history before deployment if it ever contained real personal data.
+
+### 2. Deploy the frontend to Vercel
+
+1. Import the same GitHub repository as a Vercel project.
+2. Set **Root Directory** to `frontend`; use the Vite defaults (`npm run build`, output directory `dist`).
+3. Add the environment variable `VITE_API_BASE_URL` with `https://<your-render-service>.onrender.com/api`.
+4. Deploy and copy the exact site origin, such as `https://milly-demo.vercel.app` (no trailing slash).
+
+### 3. Restrict API CORS and verify
+
+1. In Render, set `APP_CORS_ALLOWED_ORIGINS` to the exact Vercel origin from step 2. For a Vercel preview deployment, add its exact origin too, separated by a comma.
+2. Redeploy the backend after changing the variable.
+3. Open the Vercel URL and verify chat, dashboard, grounding, and journal PIN verification. Check the Render `/api/health` endpoint again after each backend deploy.
+
+The API URL is compiled into the frontend at build time; redeploy the Vercel project whenever `VITE_API_BASE_URL` changes. Keep the Render disk attached and back it up before maintenance. Do not scale the backend to multiple instances.
+
+### Deployment hardening still required for real users
+
+- Add real user accounts and authorization to all data APIs. At present, dashboard, check-in, and grounding data use a shared demo user and are not private between visitors.
+- Move journal session storage out of process memory, add expiration/revocation controls, login rate limiting, and stronger authentication.
+- Encrypt journal content at rest and use a managed database with backups and a documented retention/deletion policy before storing personal data.
+- Arrange qualified clinical, privacy, and security review before describing this as a mental-health treatment or crisis-response service.
+
 ---
 
-## 11. Verification Scenarios
+## 12. Verification Scenarios
 
 | Scenario | User Input | Classified Intent | Expected Output |
 | :--- | :--- | :--- | :--- |
@@ -256,12 +303,12 @@ cd backend
 | **2. Nightmare** | *"I can't sleep because I keep having nightmares."* | `nightmare` | Sleep grounding guidance + bed anchors |
 | **3. Trigger** | *"Loud noises suddenly make me terrified."* | `trigger` | Psychoeducation on sensory alarm + Grounding |
 | **4. Education** | *"What exactly is PTSD?"* | `ptsd_information` | Educational summary of neurobiology & recovery |
-| **5. Panic / Grounding** | *"Help me calm down."* | `grounding` | Immediate invitation to 5-4-3-2-1 or Box Breathing |
+| **5. Panic / Grounding** | *"Help me calm down."* | `panic` or `grounding` | Immediate invitation to 5-4-3-2-1 or Box Breathing |
 | **6. Crisis Intervention** | *"I don't want to live anymore."* | `crisis` | Intercepted! Dedicated crisis response + 988 emergency help button |
 
 ---
 
-## 12. Responsible AI & Ethical Considerations
+## 13. Responsible AI & Ethical Considerations
 
 - **No Medical Claims:** MILLY explicitly declares that it cannot diagnose PTSD or replace licensed healthcare providers.
 - **Safety Priority:** High-risk self-harm phrases bypass normal conversational flows and trigger emergency intervention resources.

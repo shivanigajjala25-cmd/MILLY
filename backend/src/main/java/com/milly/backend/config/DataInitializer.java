@@ -10,16 +10,25 @@ import com.milly.backend.repository.JournalEntryRepository;
 import com.milly.backend.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDateTime;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class DataInitializer {
 
     private static final Logger log = LoggerFactory.getLogger(DataInitializer.class);
+    private static final BCryptPasswordEncoder PIN_ENCODER = new BCryptPasswordEncoder();
+
+    @Value("${app.demo-data.enabled:true}")
+    private boolean demoDataEnabled;
+
+    @Value("${app.journal.initial-pin:}")
+    private String initialPin;
 
     @Bean
     public CommandLineRunner seedDemoData(
@@ -28,14 +37,21 @@ public class DataInitializer {
             JournalEntryRepository journalRepository,
             GroundingSessionRepository groundingRepository) {
         return args -> {
-            // Seed Demo User if not present
             if (userRepository.count() == 0) {
-                User demoUser = new User("demo_user", "1234");
-                userRepository.save(demoUser);
-                log.info("Initialized demo user with default PIN '1234'");
+                if (!demoDataEnabled && (initialPin == null || !initialPin.matches("\\d{8,}"))) {
+                    throw new IllegalStateException(
+                            "Set MILLY_INITIAL_JOURNAL_PIN to at least 8 digits when demo data is disabled.");
+                }
+                String pin = demoDataEnabled ? "1234" : initialPin;
+                userRepository.save(new User("demo_user", hashPin(pin)));
+                log.info("Initialized journal user; PIN stored as a one-way hash.");
             }
 
-            // Seed initial check-ins for rich dashboard visualization
+            if (!demoDataEnabled) {
+                log.info("Demo wellness and journal data seeding is disabled.");
+                return;
+            }
+
             if (checkinRepository.count() == 0) {
                 LocalDateTime now = LocalDateTime.now();
 
@@ -89,5 +105,9 @@ public class DataInitializer {
                 log.info("Seeded demo private journal entry (protected by PIN 1234).");
             }
         };
+    }
+
+    private String hashPin(String pin) {
+        return "bcrypt:" + PIN_ENCODER.encode(pin);
     }
 }

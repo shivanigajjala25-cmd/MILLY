@@ -12,7 +12,6 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
 public class DashboardController {
 
     private final CheckinRepository checkinRepository;
