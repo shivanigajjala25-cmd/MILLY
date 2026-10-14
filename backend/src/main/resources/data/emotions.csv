@@ -1,0 +1,141 @@
+text,emotion
+"I feel terrified and my heart won't stop racing",fear
+"I'm terrified that it will happen all over again",fear
+"Sheer terror took over when I heard that loud sound",fear
+"I am scared out of my mind right now",fear
+"I feel like I'm in extreme danger even though I'm home",fear
+"A sudden wave of dread and fear washed over me",fear
+"I'm terrified to close my eyes tonight",fear
+"I feel so frightened and vulnerable right now",fear
+"Horror from that event is paralyzing me",fear
+"I am afraid of my own shadow today",fear
+"Trembling with intense fear and shaking all over",fear
+"I'm scared of what might happen next",fear
+"Every instinct in my body is screaming danger",fear
+"I feel terrified of being alone in the dark",fear
+"Paralyzed by acute fear and dread",fear
+"I can't shake off this terrifying feeling",fear
+"The dread feels completely overwhelming and scary",fear
+"I'm terrified that I will never feel safe again",fear
+"Fear is choking my throat and racing through me",fear
+"I am deeply afraid of losing control",fear
+"I can't stop worrying about everything that could go wrong",anxiety
+"My mind is constantly spinning with nervous thoughts",anxiety
+"I feel so restless, tense, and jittery right now",anxiety
+"My chest feels tight and constricted from worry",anxiety
+"I have this nervous knot in my stomach all day",anxiety
+"I feel like something bad is about to happen",anxiety
+"Constant apprehension is keeping me on edge",anxiety
+"I'm so nervous about having to go out today",anxiety
+"Worrying has kept me awake for hours",anxiety
+"I feel hyperventilating anxiety creeping up my spine",anxiety
+"My nerves are completely fried and frayed",anxiety
+"Overthinking every tiny detail with high anxiety",anxiety
+"I can't relax because of persistent anxious tension",anxiety
+"Anxiety has made it impossible to concentrate",anxiety
+"I feel jittery, shaky, and full of anxious anticipation",anxiety
+"My body feels on red alert with nervous anticipation",anxiety
+"I feel overwhelmed by rapid, anxious thoughts",anxiety
+"I have high anxiety about having another episode",anxiety
+"Anxious worries are consuming all my energy",anxiety
+"I'm feeling so anxious and unsettled this morning",anxiety
+"I feel completely empty, broken, and hollow inside",sadness
+"Tears won't stop flowing and everything feels heavy",sadness
+"I feel deeply depressed and drained of all joy",sadness
+"There is a profound ache of sorrow in my chest",sadness
+"I feel so lonely, isolated, and forgotten by everyone",sadness
+"Grief and sadness are weighing down every step I take",sadness
+"I feel like I'm mourning the person I used to be",sadness
+"Hopelessness and darkness are clouding my day",sadness
+"I just want to curl up in bed and cry all day",sadness
+"Nothing brings me happiness anymore, just deep sadness",sadness
+"I feel worthless, broken, and exhausted from crying",sadness
+"A heavy cloud of melancholy has settled over me",sadness
+"I miss feeling whole and happy; I'm so sad",sadness
+"Everything feels bleak, gray, and devoid of light",sadness
+"I feel overwhelmed by sorrow and regret",sadness
+"My heart feels so heavy with grief today",sadness
+"I can't muster up any motivation because of this sadness",sadness
+"I feel heartbroken over what trauma took from me",sadness
+"Deep sorrow has settled into my bones",sadness
+"I'm crying and feeling completely shattered",sadness
+"I am so furious about what happened to me",anger
+"I feel overwhelming rage towards those who hurt me",anger
+"Why did this have to happen to me? I'm so angry!",anger
+"I am boiling inside with irritation and frustration",anger
+"I feel like punching a wall or screaming out loud",anger
+"Anger is burning inside my chest like a fire",anger
+"I'm so mad at the world and how unfair everything is",anger
+"My blood is boiling and I can't calm down my temper",anger
+"I feel resentful and bitter towards everyone around me",anger
+"Small things are triggering massive bursts of fury",anger
+"I'm exhausted from holding in so much resentment and rage",anger
+"I feel betrayed, furious, and deeply wronged",anger
+"The injustice of what occurred makes me livid",anger
+"I snapped at my family because of my irritable anger",anger
+"I am filled with bitter fury that won't dissipate",anger
+"Rage is making my muscles tense and my jaw clench",anger
+"I feel hostile, defensive, and ready to explode",anger
+"Why do they get to move on while I suffer? I'm so angry",anger
+"I'm boiling with indignation and righteous anger",anger
+"I hate how unfair this whole ordeal is",anger
+"I feel surprisingly grounded and at ease today",calm
+"My breathing is steady, peaceful, and relaxed",calm
+"I feel quiet, safe, and comfortable in this moment",calm
+"There is a gentle sense of peace in my mind",calm
+"I took a deep breath and feel much more balanced",calm
+"Things feel manageable and peaceful right now",calm
+"I feel serene, resting in a safe space",calm
+"My body has let go of tension and feels relaxed",calm
+"I am enjoying this calm and quiet afternoon",calm
+"Feeling steady, present, and grateful for tranquility",calm
+"A soothing stillness is surrounding my thoughts",calm
+"I feel unhurried, grounded, and gentle with myself",calm
+"Today is a good day; my nervous system is quiet",calm
+"I feel centered and in harmony with my surroundings",calm
+"Peaceful and restful after completing my breathing exercise",calm
+"I feel tranquil and relieved of previous worries",calm
+"Savoring this moment of stillness and composure",calm
+"My mind feels still like a smooth lake today",calm
+"I feel relaxed and safe in my own skin right now",calm
+"Gently breathing, feeling safe and grounded",calm
+"What is the definition of post-traumatic stress disorder?",neutral
+"Can you explain the difference between PTSD and acute stress?",neutral
+"Tell me about the four symptom clusters in DSM-5",neutral
+"How long do PTSD symptoms usually need to persist for diagnosis?",neutral
+"What percentage of people experience trauma in their lifetime?",neutral
+"Could you provide information on grounding techniques?",neutral
+"What are the scientific mechanisms behind box breathing?",neutral
+"I would like to understand how triggers function in the brain",neutral
+"Can you outline the phases of trauma therapy?",neutral
+"What role does the amygdala play in fear conditioning?",neutral
+"Tell me how sleep architecture is affected by trauma",neutral
+"I want to learn about progressive muscle relaxation methods",neutral
+"How does memory consolidation work during REM sleep?",neutral
+"What are the standard guidelines for trauma recovery?",neutral
+"Can you list common physical signs of sympathetic arousal?",neutral
+"Please summarize the 5-4-3-2-1 sensory grounding approach",neutral
+"What is bilateral stimulation in EMDR therapy?",neutral
+"I am reading about stress hormones like cortisol and adrenaline",neutral
+"Could you explain hypervigilance from a physiological viewpoint?",neutral
+"I am curious about the history of PTSD as a diagnosis",neutral
+"I feel completely overwhelmed, falling apart, and distressed",distress
+"Everything is crashing down and I don't know what to do",distress
+"I'm in acute agony and can't take this mental pressure",distress
+"I feel completely lost, helpless, and drowning in stress",distress
+"My entire system is overloaded and breaking down",distress
+"I can't cope with this intensity anymore, it hurts so much",distress
+"I feel trapped in an emotional storm that won't end",distress
+"Screaming inside because the pain is unbearable",distress
+"I feel desperate, fragmented, and unable to function",distress
+"Everything is too loud, too intense, and completely unbearable",distress
+"I am spiraling out of control with severe distress",distress
+"My head is pounding and I'm trembling with agony",distress
+"I feel pushed past my breaking point right now",distress
+"Desperation and anguish are taking over my mind",distress
+"I feel suffocated by emotional chaos and turmoil",distress
+"I'm in severe psychological distress and need relief",distress
+"I can't bear the emotional weight of today",distress
+"My thoughts are screaming and I feel completely unravelled",distress
+"I'm on the verge of a breakdown from prolonged distress",distress
+"Extreme agitation and distress have taken over my body",distress

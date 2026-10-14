@@ -1,0 +1,28 @@
+
+/* Improve readability on the MILLY check-in page */
+input,
+textarea,
+select {
+  color: #263a34 !important;
+  background-color: #ffffff;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #66756f !important;
+  opacity: 1;
+}
+
+button {
+  opacity: 1;
+}
+
+button:disabled {
+  opacity: 1 !important;
+  color: #53665f !important;
+}
+
+/* Keep text readable on light form cards */
+.bg-white {
+  color: #293b36;
+}

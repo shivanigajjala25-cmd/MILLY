@@ -1,0 +1,182 @@
+[
+  {
+    "id": "kb_01_what_is_ptsd",
+    "title": "What is PTSD?",
+    "category": "education",
+    "keywords": ["ptsd", "definition", "post-traumatic", "trauma", "disorder", "brain", "explained"],
+    "summary": "Post-Traumatic Stress Disorder is a natural response of the nervous system following exposure to traumatic events.",
+    "content": "Post-Traumatic Stress Disorder (PTSD) is a mental health condition that can develop after experiencing or witnessing deeply frightening, dangerous, or life-threatening events. The human nervous system has evolved survival instincts—fight, flight, or freeze. In PTSD, the brain's internal alarm system remains activated even long after the danger has passed. It is not a sign of personal weakness or character flaw; it is an involuntary, biological adaptation to extraordinary stress.",
+    "copingTechnique": "Educational awareness and self-compassion: remind yourself that your body is trying to protect you."
+  },
+  {
+    "id": "kb_02_ptsd_symptoms",
+    "title": "PTSD Symptoms & The Four Clusters",
+    "category": "education",
+    "keywords": ["symptoms", "clusters", "intrusion", "avoidance", "cognition", "hyperarousal", "signs"],
+    "summary": "PTSD symptoms are clinically grouped into intrusion, avoidance, negative mood/cognition, and hyperarousal.",
+    "content": "Symptoms of PTSD generally fall into four recognized categories: 1) Intrusive memories (flashbacks, nightmares, distressing involuntary thoughts), 2) Avoidance (staying away from places, conversations, or reminders of the event), 3) Negative changes in mood and thinking (feelings of detachment, numbness, excessive guilt, loss of interest), and 4) Hyperarousal (feeling on guard, easily startled, irritable, or having sleep difficulties). Symptoms can vary in intensity over time.",
+    "copingTechnique": "Symptom tracking with gentle non-judgmental observation."
+  },
+  {
+    "id": "kb_03_flashbacks",
+    "title": "Understanding Flashbacks",
+    "category": "symptoms",
+    "keywords": ["flashback", "reliving", "past", "memory", "intrusive", "dissociation", "remembering"],
+    "summary": "Flashbacks occur when traumatic memories are re-experienced as if happening in the present moment.",
+    "content": "During a flashback, the brain's amygdala triggers a full physical and emotional fight-or-flight response, temporarily losing the contextual timeline that the event is over. You may see images, smell scents, or feel the same physical terror experienced during the trauma. Flashbacks can range from fleeting mental pictures to complete immersion where contact with current surroundings is temporarily lost.",
+    "copingTechnique": "Grounding anchors: touch a cold surface, feel your feet planted on the floor, and repeat: 'I am safe in this room right now. The year is 2026. The trauma is in the past.'"
+  },
+  {
+    "id": "kb_04_nightmares",
+    "title": "Trauma-Related Nightmares",
+    "category": "symptoms",
+    "keywords": ["nightmare", "bad dreams", "sleep", "waking up", "sweating", "screaming", "terror"],
+    "summary": "Trauma dreams replay intense emotions and stress physiology during rapid eye movement sleep.",
+    "content": "Nightmares associated with PTSD often feel far more vivid, physical, and terrifying than ordinary bad dreams. They may replicate the exact traumatic event or present symbolic themes of danger, helplessness, or entrapment. Waking up in a cold sweat with a racing heart is common because the body released adrenaline during the nightmare.",
+    "copingTechnique": "Bedside grounding kit: keep a cup of cool water, a comforting textured blanket, and a soft warm lamp beside the bed to re-orient yourself upon waking."
+  },
+  {
+    "id": "kb_05_triggers",
+    "title": "Identifying and Managing Triggers",
+    "category": "symptoms",
+    "keywords": ["trigger", "loud noises", "smells", "reminders", "places", "sensory", "reaction"],
+    "summary": "Triggers are sensory cues or situations that unconsciously remind the nervous system of past trauma.",
+    "content": "A trigger can be an external stimulus—such as a sudden loud bang, a certain perfume, a tone of voice, a crowded subway, or a particular anniversary date—or internal, like an elevated heart rate or feeling trapped. When a trigger is encountered, the nervous system bypasses conscious logic and initiates an emergency defensive response within milliseconds.",
+    "copingTechnique": "Trigger mapping: notice your early physiological cues (tight jaw, shallow breath) and gently step into a quieter space before the reaction peaks."
+  },
+  {
+    "id": "kb_06_hypervigilance",
+    "title": "Hypervigilance & Constant Alertness",
+    "category": "symptoms",
+    "keywords": ["hypervigilance", "on edge", "scanning", "danger", "startle", "jumpy", "guarded"],
+    "summary": "Hypervigilance is the state of continuous, exhausting environmental scanning for potential threats.",
+    "content": "Hypervigilance is like having your threat radar locked on maximum sensitivity 24 hours a day. People experiencing hypervigilance frequently sit with their backs against the wall, constantly check exits in public places, startle intensely at quiet sounds, and find it difficult to let down their guard. Over time, this constant vigilance causes severe physical and mental fatigue.",
+    "copingTechnique": "Perceptual widening: gently soften your visual focus and scan the room slowly, acknowledging 3 neutral, safe items around you."
+  },
+  {
+    "id": "kb_07_anxiety",
+    "title": "PTSD-Related Anxiety",
+    "category": "symptoms",
+    "keywords": ["anxiety", "worried", "nervous", "tension", "chest tight", "dread", "shaking"],
+    "summary": "Chronic anxiety in PTSD stems from sustained sympathetic nervous system activation.",
+    "content": "Unlike everyday anxiety about tasks or schedules, trauma-related anxiety often carries an existential dread—a subconscious belief that sudden catastrophe is imminent. Physical signs include elevated resting heart rate, shallow breathing, muscle stiffness in the shoulders and jaw, gastrointestinal upset, and persistent restlessness.",
+    "copingTechnique": "Long-exhale breathing: inhale for 4 seconds through the nose and exhale slowly for 6-7 seconds through gently parted lips to stimulate the vagus nerve."
+  },
+  {
+    "id": "kb_08_panic",
+    "title": "Handling Acute Panic Surges",
+    "category": "symptoms",
+    "keywords": ["panic", "panic attack", "cannot breathe", "suffocating", "heart pounding", "dying", "terror"],
+    "summary": "Panic attacks are sudden, intense spikes of fear peaking within minutes that are physically safe though frightening.",
+    "content": "During an acute panic surge, your body experiences a massive surge of adrenaline. Common symptoms include rapid palpitations, feelings of choking or suffocating, dizziness, trembling, and the fear of losing control or having a medical emergency. While terrifying, panic attacks are not physically dangerous and will naturally subside as adrenaline metabolizes.",
+    "copingTechnique": "Cold water sensory dive: splash cold water on your wrists and face or hold an ice cube in your palm to activate the mammalian dive reflex and drop your heart rate."
+  },
+  {
+    "id": "kb_09_sleep_problems",
+    "title": "Sleep Disturbances and Insomnia",
+    "category": "symptoms",
+    "keywords": ["sleep", "insomnia", "cannot sleep", "tossing", "exhaustion", "awake", "fatigue"],
+    "summary": "Difficulty falling or staying asleep is a hallmark of an overactive trauma alarm system.",
+    "content": "Sleep requires the body to feel safe enough to surrender conscious control. When the nervous system remains on alert, drifting off feels threatening to the subconscious mind. People with PTSD often experience long delays falling asleep, frequent awakenings, early morning waking, and non-restorative sleep, creating a cycle that exacerbates daytime symptoms.",
+    "copingTechnique": "Wind-down sanctuary protocol: dim screens 45 minutes before bed, play continuous brown noise or white noise, and keep your sleeping space cool and predictable."
+  },
+  {
+    "id": "kb_10_grounding_techniques",
+    "title": "The Science of Grounding Techniques",
+    "category": "coping",
+    "keywords": ["grounding", "techniques", "present", "reality", "body", "sensory", "anchor"],
+    "summary": "Grounding uses concrete sensory inputs to pull the brain out of trauma memory loops and into the present.",
+    "content": "Grounding techniques are active coping strategies designed to reconnect you to the physical present moment when your mind is pulled into the past or dissociated. By forcing conscious focus onto external sensory stimuli (touch, sight, sound, temperature), grounding interrupts the amygdala's alarm signal and reactivates the prefrontal cortex.",
+    "copingTechnique": "Physical grounding: press both soles of your shoes firmly into the floor, feel the gravity holding you securely, and describe 3 physical textures aloud."
+  },
+  {
+    "id": "kb_11_54321_grounding",
+    "title": "The 5-4-3-2-1 Sensory Method",
+    "category": "coping",
+    "keywords": ["5-4-3-2-1", "five senses", "see", "touch", "hear", "smell", "taste", "exercise"],
+    "summary": "A structured countdown engaging all five senses sequentially to restore sensory presence.",
+    "content": "The 5-4-3-2-1 technique is one of the most widely recommended grounding tools: 5 things you can see (colors, shapes, reflections), 4 things you can physically feel (cloth on your skin, solid chair underneath, phone in hand), 3 things you can hear (hum of a fan, distant traffic, your breath), 2 things you can smell (coffee, fresh air, soap), and 1 thing you can taste (mint, water, or the current taste in your mouth).",
+    "copingTechnique": "Complete all five steps methodically without rushing, speaking each item aloud if possible."
+  },
+  {
+    "id": "kb_12_box_breathing",
+    "title": "Box Breathing (4x4 Breathwork)",
+    "category": "coping",
+    "keywords": ["box breathing", "breathing", "4 seconds", "inhale", "hold", "exhale", "parasympathetic"],
+    "summary": "Equal-duration rhythmic breathing that directly stimulates the parasympathetic calming response.",
+    "content": "Used by trauma specialists and high-stress responders alike, box breathing (also called square breathing) regulates the autonomic nervous system by equalizing oxygen and carbon dioxide levels: Inhale deeply through the nose for 4 seconds, gently hold your breath for 4 seconds, exhale smoothly through the mouth for 4 seconds, and pause empty for 4 seconds.",
+    "copingTechnique": "Practice 4 to 6 full box cycles while picturing drawing the four sides of a square in your mind."
+  },
+  {
+    "id": "kb_13_muscle_relaxation",
+    "title": "Progressive Muscle Relaxation (PMR)",
+    "category": "coping",
+    "keywords": ["muscle relaxation", "pmr", "tension", "release", "shoulders", "body scan", "relax"],
+    "summary": "Deliberately tensing and relaxing muscle groups sequentially to teach the body physical release.",
+    "content": "Trauma survivors often carry chronic, unconscious muscular armoring, especially across the jaw, shoulders, abdomen, and pelvis. Progressive Muscle Relaxation involves systematically tensing a targeted muscle group for 5 seconds, followed by a sudden, conscious release for 15 seconds while observing the contrast between tension and ease.",
+    "copingTechnique": "Start with clenching your toes and feet, release; then calves, release; moving gradually upward through your body to your face and forehead."
+  },
+  {
+    "id": "kb_14_coping_strategies",
+    "title": "Holistic Coping Strategies for Everyday Life",
+    "category": "coping",
+    "keywords": ["coping", "strategies", "lifestyle", "routine", "resilience", "daily", "habits"],
+    "summary": "Sustainable, balanced habits that build long-term nervous system resilience.",
+    "content": "Effective coping with PTSD is multifaceted. Beyond in-the-moment grounding, long-term resilience involves: establishing predictable daily routines, reducing caffeine and alcohol intake which can mimic panic sensations, scheduling gentle movement like walking or yoga, maintaining a supportive social circle, and keeping a physical or digital coping kit readily available.",
+    "copingTechnique": "Create a 'comfort pouch' with calming tea, a familiar soothing scent, a grounding stone, and helpful affirmation notes."
+  },
+  {
+    "id": "kb_15_when_to_seek_help",
+    "title": "When to Seek Professional Help",
+    "category": "guidance",
+    "keywords": ["professional help", "therapist", "psychologist", "psychiatrist", "treatment", "doctor", "support"],
+    "summary": "Guidelines on recognizing when self-help needs to be paired with licensed clinical trauma therapy.",
+    "content": "If distressing symptoms persist for longer than one month, severely disrupt your ability to work or maintain relationships, lead to dangerous avoidance, or cause overwhelming despair, seeking a qualified trauma therapist is strongly recommended. Evidence-based treatments like EMDR, CPT, and PE have very high success rates in resolving trauma memories.",
+    "copingTechnique": "Schedule an exploratory consultation with a licensed practitioner specializing in trauma-informed care."
+  },
+  {
+    "id": "kb_16_ptsd_relationships",
+    "title": "PTSD and Interpersonal Relationships",
+    "category": "guidance",
+    "keywords": ["relationships", "family", "partner", "communication", "isolation", "loved ones", "intimacy"],
+    "summary": "How trauma symptoms affect communication, trust, and intimacy, and ways to bridge the gap.",
+    "content": "PTSD can create profound challenges in relationships. Emotional numbness can make it difficult to feel love or warmth, while hypervigilance and irritability may cause misunderstandings or unintentional conflict. Partners may feel helpless or shut out. Open communication about triggers and establishing agreed-upon 'timeout' signals helps partners support without escalating distress.",
+    "copingTechnique": "Establish a simple code word with your loved one that means 'I am feeling triggered right now and need 15 minutes of quiet space, but I love you.'"
+  },
+  {
+    "id": "kb_17_ptsd_daily_life",
+    "title": "Navigating PTSD in Daily Life & Work",
+    "category": "guidance",
+    "keywords": ["daily life", "work", "routine", "crowds", "errands", "functioning", "fatigue"],
+    "summary": "Pacing yourself and managing workplace or community environments with dignity.",
+    "content": "Daily responsibilities can feel overwhelming when your nervous system is depleted. Navigating noisy offices, commuting in rush hour, or handling deadlines requires deliberate energy management (pacing). Building small buffer intervals between tasks, wearing noise-dampening earplugs when in transit, and having discreet grounding rituals can protect your equilibrium.",
+    "copingTechnique": "The 5-minute transition pause: before shifting from one task or environment to another, sit quietly for 5 minutes and recalibrate your breathing."
+  },
+  {
+    "id": "kb_18_ptsd_pregnancy_postpartum",
+    "title": "PTSD in Pregnancy & Postpartum Experiences",
+    "category": "education",
+    "keywords": ["pregnancy", "postpartum", "birth trauma", "medical", "motherhood", "infant", "labor"],
+    "summary": "Understanding how birth trauma and postpartum vulnerability intersect with PTSD symptoms.",
+    "content": "Traumatic childbirth experiences, medical emergencies during labor, or previous trauma reactivation during pregnancy are recognized causes of postpartum PTSD. Physical vulnerability, hormonal fluctuations, and sleep deprivation can amplify symptoms. Specialized perinatal mental health professionals offer supportive therapies that protect both parent and child well-being.",
+    "copingTechnique": "Gentle skin-to-skin contact, quiet swaddling time, and seeking specialized perinatal mental health care."
+  },
+  {
+    "id": "kb_19_ptsd_vs_normal_stress",
+    "title": "Difference Between PTSD and Normal Stress",
+    "category": "education",
+    "keywords": ["difference", "normal stress", "acute stress", "comparison", "distinction", "timeline"],
+    "summary": "Normal acute stress resolves as danger ends; PTSD persists with neurological alarm dysregulation.",
+    "content": "Normal stress is an adaptive reaction to immediate demands (such as an exam or busy project) and subsides once the demand passes. In contrast, PTSD is triggered by severe traumatic events that threaten life or safety, and the nervous system fails to return to baseline weeks or months later. It involves involuntary intrusions, persistent physiological terror, and behavioral avoidance that ordinary stress does not produce.",
+    "copingTechnique": "Recognize that your symptoms are neurological survival responses, not personal failures."
+  },
+  {
+    "id": "kb_20_recovery_and_treatment",
+    "title": "Recovery Pathways & Clinical Treatment",
+    "category": "guidance",
+    "keywords": ["recovery", "treatment", "emdr", "cpt", "prolonged exposure", "hope", "healing"],
+    "summary": "Clinical approaches like EMDR, CPT, and exposure therapy help the brain safely process trauma.",
+    "content": "Recovery from PTSD is entirely possible. Modern evidence-based therapies include: Eye Movement Desensitization and Reprocessing (EMDR), which uses bilateral stimulation to help reprocess traumatic memories; Cognitive Processing Therapy (CPT), which helps challenge unhelpful trauma beliefs; and Prolonged Exposure (PE). Over time, these treatments help the brain integrate the memories so they no longer trigger acute survival alarms.",
+    "copingTechnique": "Hold onto hope: healing is not linear, but with evidence-based support, the intensity of symptoms substantially declines."
+  }
+]

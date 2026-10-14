@@ -1,0 +1,306 @@
+text,intent
+"Hello",greeting
+"Hi there",greeting
+"Hey MILLY",greeting
+"Good morning",greeting
+"Good evening",greeting
+"Is anyone there?",greeting
+"Hey can I talk to you?",greeting
+"Hi, I need someone to talk to",greeting
+"Hello MILLY, are you listening?",greeting
+"Greetings",greeting
+"Hi, I'm feeling a bit lost today",greeting
+"Hello, hope you can help me",greeting
+"Hey, how are you?",greeting
+"Good afternoon MILLY",greeting
+"Hi I just wanted to say hello",greeting
+"Hey there companion",greeting
+"Hello friend",greeting
+"Hi MILLY I am here",greeting
+"Hey, I need a safe space to chat",greeting
+"Hello, can you help me today?",greeting
+"Hi, are you ready to talk?",greeting
+"Hey MILLY, glad you are here",greeting
+"Good morning, feeling a little shaky",greeting
+"Hello, reaching out for some calm",greeting
+"Hi, I'm new here and need support",greeting
+"What is PTSD?",ptsd_information
+"Can you explain post traumatic stress disorder?",ptsd_information
+"How do I know if I have PTSD symptoms?",ptsd_information
+"What does PTSD stand for?",ptsd_information
+"Tell me about post-traumatic stress",ptsd_information
+"Why do trauma survivors experience PTSD?",ptsd_information
+"What happens to the brain during PTSD?",ptsd_information
+"Can trauma cause physical symptoms too?",ptsd_information
+"What is the difference between normal stress and PTSD?",ptsd_information
+"How common is PTSD?",ptsd_information
+"Can PTSD develop months after a traumatic event?",ptsd_information
+"What are the main categories of PTSD symptoms?",ptsd_information
+"Explain hyperarousal and avoidance in PTSD",ptsd_information
+"Why does the body stay on high alert after trauma?",ptsd_information
+"Is PTSD permanent or can people recover?",ptsd_information
+"What is secondary traumatic stress?",ptsd_information
+"Does complex PTSD differ from standard PTSD?",ptsd_information
+"Tell me about the nervous system and trauma response",ptsd_information
+"Can childbirth or medical events trigger PTSD?",ptsd_information
+"Can you explain how trauma affects memory?",ptsd_information
+"Why do I feel so on edge all the time?",anxiety
+"My chest feels tight and I'm so nervous",anxiety
+"I have constant anxiety that won't go away",anxiety
+"I'm feeling very anxious right now",anxiety
+"My heart is racing and my palms are sweating",anxiety
+"I can't stop worrying about everything",anxiety
+"I feel jittery and nervous for no apparent reason",anxiety
+"There's this heavy pit of anxiety in my stomach",anxiety
+"I feel like something terrible is about to happen",anxiety
+"My nervous system feels completely overwhelmed",anxiety
+"I feel restless and unable to sit still",anxiety
+"Everything is making me feel anxious today",anxiety
+"I am overwhelmed by tension and fear",anxiety
+"My thoughts are racing with anxious worries",anxiety
+"I feel like I'm losing control to anxiety",anxiety
+"My breathing is shallow and anxious",anxiety
+"I can't settle down my anxious mind",anxiety
+"Every little noise is making me jump with anxiety",anxiety
+"I'm feeling dread that I can't shake off",anxiety
+"The anxiety is making it hard to concentrate",anxiety
+"I think I'm having a panic attack",panic
+"I can't breathe and my heart is pounding so fast",panic
+"Help, I'm panicking right now",panic
+"I feel like I am suffocating or having a heart attack",panic
+"Sudden panic is overtaking me",panic
+"My body is trembling and I can't catch my breath",panic
+"I feel dizzy, detached, and panicking",panic
+"Everything is closing in on me, I'm having a panic attack",panic
+"I can't breathe properly, please help me calm down",panic
+"Panic is rushing through my whole body",panic
+"I feel terror out of nowhere, is this a panic attack?",panic
+"My hands are shaking and I feel sheer panic",panic
+"I'm hyperventilating and feeling overwhelmed",panic
+"I feel like I'm going to pass out from panic",panic
+"Please help me through this sudden panic attack",panic
+"My heart is hammering against my ribs, it's panic",panic
+"I feel an acute wave of terror and panic",panic
+"Can't slow my breathing down, panic is too high",panic
+"I feel trapped and panicking",panic
+"Help me stop this panic attack right now",panic
+"I keep remembering what happened",flashback
+"I am having a flashback right now",flashback
+"Memories of the trauma are playing over and over",flashback
+"I feel like I am back in that terrible place again",flashback
+"Images from the event won't stop replaying in my mind",flashback
+"I'm re-experiencing the traumatic event",flashback
+"A sensory flashback just hit me out of nowhere",flashback
+"I can see the trauma right in front of me",flashback
+"It feels like the past is happening all over again right now",flashback
+"I was triggered and suddenly felt sucked back into the past",flashback
+"Intrusive memories are overwhelming my thoughts",flashback
+"I keep reliving the worst moment of my life",flashback
+"I feel dissociated and stuck in the traumatic memory",flashback
+"The memory feels so real, like it is occurring today",flashback
+"I can smell and hear things from that day",flashback
+"Sudden visual flash of the accident came back",flashback
+"I can't break out of this traumatic flashback",flashback
+"My brain is replaying the trauma against my will",flashback
+"I feel like I'm trapped in a memory loop",flashback
+"Help me get out of this flashback and back to reality",flashback
+"I woke up terrified from a severe nightmare",nightmare
+"I keep having bad dreams about the trauma",nightmare
+"I am afraid to fall asleep because of nightmares",nightmare
+"Another terrifying nightmare woke me in a cold sweat",nightmare
+"My dreams are violent and disturbing every single night",nightmare
+"I woke up screaming from a nightmare",nightmare
+"The same traumatic nightmare repeats night after night",nightmare
+"I can't shake off the dread from the dream I just had",nightmare
+"Nightmares make going to bed so scary",nightmare
+"I wake up gasping for air after horrible dreams",nightmare
+"Trauma dreams are haunting my sleep",nightmare
+"I had a vivid nightmare about what happened to me",nightmare
+"My heart was pounding when I woke up from a nightmare",nightmare
+"I dread closing my eyes because the nightmares return",nightmare
+"Night terror woke me up disoriented and scared",nightmare
+"I can't forget the images from my nightmare earlier",nightmare
+"The nightmare felt so vivid that I thought it was real",nightmare
+"Disturbed dreams are exhausting me mentally",nightmare
+"Why do I get these awful nightmares after trauma?",nightmare
+"How can I manage trauma-related nightmares?",nightmare
+"I haven't been sleeping well at all",sleep_problem
+"I have severe insomnia since the incident",sleep_problem
+"I toss and turn for hours unable to fall asleep",sleep_problem
+"I keep waking up every hour during the night",sleep_problem
+"I'm exhausted but my mind refuses to sleep",sleep_problem
+"My sleep schedule is completely ruined by hypervigilance",sleep_problem
+"I only slept 3 hours last night",sleep_problem
+"I can't get any deep, restful sleep anymore",sleep_problem
+"Every slight creak wakes me up in the dark",sleep_problem
+"Insomnia is making all my daytime symptoms worse",sleep_problem
+"I feel drained because I cannot sleep at night",sleep_problem
+"My body won't relax enough to let me sleep",sleep_problem
+"Lack of sleep is ruining my ability to cope",sleep_problem
+"I've been awake until 4am every night this week",sleep_problem
+"How do I fix my broken sleep patterns with PTSD?",sleep_problem
+"I feel so fatigued from chronic sleeplessness",sleep_problem
+"Sleep deprivation is making my anxiety skyrocket",sleep_problem
+"Can you give me tips for falling asleep when hypervigilant?",sleep_problem
+"I stay awake on guard even though I desperately need sleep",sleep_problem
+"Trouble sleeping has been my biggest struggle lately",sleep_problem
+"Loud noises suddenly make me terrified",trigger
+"A certain smell immediately triggered a panic response",trigger
+"Crowded spaces trigger a huge fear reaction in me",trigger
+"I got triggered at work today by an unexpected sound",trigger
+"Seeing someone who looked like that person triggered me",trigger
+"Why do specific sounds or words trigger such intense reactions?",trigger
+"I am constantly avoiding things that might trigger memories",trigger
+"A siren went off outside and triggered my fight-or-flight",trigger
+"Certain dates and anniversaries trigger immense stress",trigger
+"I had an unexpected emotional trigger in the grocery store",trigger
+"Why does my body react so violently to simple triggers?",trigger
+"Being trapped in traffic is a major trigger for me",trigger
+"I felt safe until a sudden loud bang triggered my alarm",trigger
+"How can I handle situations when I get triggered in public?",trigger
+"Someone raised their voice and it completely triggered me",trigger
+"My trauma triggers seem to be everywhere lately",trigger
+"A movie scene triggered memories I wasn't ready to face",trigger
+"I feel like everyday life is full of unexpected triggers",trigger
+"Understanding my triggers is so difficult",trigger
+"I need help coping when a trigger activates my nervous system",trigger
+"Can you guide me through a grounding exercise?",grounding
+"I need to ground myself right now",grounding
+"Teach me the 5-4-3-2-1 technique",grounding
+"How does grounding bring me back to the present?",grounding
+"Help me connect back with reality and my body",grounding
+"I want to do box breathing right now",grounding
+"Can we do a sensory grounding practice?",grounding
+"Lead me through progressive muscle relaxation",grounding
+"Ground me, I feel like I'm floating away and detached",grounding
+"I need a calming breathing exercise to center myself",grounding
+"Let's practice the 4-4-4-4 box breathing technique",grounding
+"Can you walk me through the five senses exercise?",grounding
+"Help me feel my feet on the floor and stay present",grounding
+"Show me a physical grounding method for when I dissociate",grounding
+"I want to try a safe place visualization",grounding
+"Start grounding now please",grounding
+"I need an exercise to calm my nervous system down",grounding
+"Let's do a breathwork routine together",grounding
+"Can you give me a grounding routine I can do quietly?",grounding
+"Guide me through deep breathing to steady myself",grounding
+"I feel so emotionally drained and hopeless",emotional_distress
+"I'm feeling so sad and overwhelmed today",emotional_distress
+"Everything feels heavy and I just want to cry",emotional_distress
+"I feel completely broken inside from what happened",emotional_distress
+"I am carrying so much grief and emotional pain",emotional_distress
+"I feel numb, detached, and emotionally distant from everyone",emotional_distress
+"Why do I feel so angry and irritable all the time?",emotional_distress
+"I feel guilty and blame myself for the trauma",emotional_distress
+"The emotional burden is just too much to bear today",emotional_distress
+"I feel lonely and misunderstood by people around me",emotional_distress
+"I'm having a really difficult emotional day",emotional_distress
+"Shame and sadness are washing over me",emotional_distress
+"I can't feel joy or happiness anymore",emotional_distress
+"I feel detached from my loved ones, like a stranger",emotional_distress
+"My mood swings between rage, numbness, and crying",emotional_distress
+"I feel hollow and empty inside",emotional_distress
+"The emotional exhaustion is taking over my whole body",emotional_distress
+"I'm struggling to keep myself composed today",emotional_distress
+"I feel deep despair and emotional isolation",emotional_distress
+"Why am I so easily irritated and short-tempered?",emotional_distress
+"What are some healthy coping strategies for PTSD?",coping
+"How do people cope with intense trauma triggers?",coping
+"Can you suggest ways to manage hypervigilance?",coping
+"What can I do when I feel a wave of distress coming?",coping
+"Give me some coping mechanisms for daily life",coping
+"How can I self-soothe when things get too hard?",coping
+"What lifestyle habits help support trauma recovery?",coping
+"Can journaling help with processing difficult days?",coping
+"How do I manage sensory overload in public spaces?",coping
+"What coping skills work best for managing intrusive thoughts?",coping
+"How can I create a personal safety plan for bad days?",coping
+"Are there mindfulness techniques specifically helpful for PTSD?",coping
+"How do I build resilience after experiencing trauma?",coping
+"Tips for dealing with relationship strain caused by PTSD",coping
+"What tools can I carry with me to help when triggered outside?",coping
+"How can I practice self-compassion when I feel frustrated?",coping
+"Ways to reduce physical tension from chronic stress",coping
+"What is a coping kit and how can I assemble one?",coping
+"How do I set boundaries with others to protect my peace?",coping
+"Suggest positive self-care activities for healing",coping
+"When should someone see a therapist for PTSD?",professional_help
+"What kind of professional therapies exist for PTSD?",professional_help
+"How does EMDR therapy work for trauma processing?",professional_help
+"Can cognitive processing therapy help with trauma?",professional_help
+"Should I talk to a psychiatrist about medication for PTSD?",professional_help
+"How do I find a trauma-informed therapist near me?",professional_help
+"What is the difference between counseling and trauma therapy?",professional_help
+"I think I need professional help, how do I start?",professional_help
+"Is therapy really effective for severe trauma?",professional_help
+"What questions should I ask when interviewing a therapist?",professional_help
+"How do I know if my current therapist is right for me?",professional_help
+"Can medication help alongside talk therapy?",professional_help
+"What does prolonged exposure therapy involve?",professional_help
+"I feel scared to start therapy, what should I expect?",professional_help
+"Where can I find affordable or accessible mental health support?",professional_help
+"How do I tell my doctor about my PTSD symptoms?",professional_help
+"Is group therapy helpful for people recovering from trauma?",professional_help
+"Can a counselor help me navigate traumatic grief?",professional_help
+"What credentials should a trauma specialist possess?",professional_help
+"I want to seek professional treatment soon",professional_help
+"Thank you so much MILLY, that really helped",gratitude
+"Thanks for being here with me right now",gratitude
+"I appreciate your calming words and support",gratitude
+"Thank you, I feel a little calmer now",gratitude
+"I'm grateful for this safe space",gratitude
+"Thanks for listening without judging me",gratitude
+"That grounding exercise really made a difference, thanks",gratitude
+"Thank you for helping me through that tough moment",gratitude
+"I appreciate the helpful information you shared",gratitude
+"Thanks, you've made today a bit easier to handle",gratitude
+"Much appreciated MILLY",gratitude
+"Thank you for understanding what I am going through",gratitude
+"I'm grateful for your gentle reminders",gratitude
+"Thanks for taking the time to guide me",gratitude
+"Thank you, feeling much more centered now",gratitude
+"That was really comforting, thank you",gratitude
+"Thanks MILLY, talk to you later",gratitude
+"I really appreciate this app and companion",gratitude
+"Thank you for being patient with me",gratitude
+"Grateful for your supportive guidance",gratitude
+"Goodbye MILLY, I am heading out",goodbye
+"Bye for now",goodbye
+"I have to go now, see you later",goodbye
+"Goodnight MILLY",goodbye
+"Talk to you tomorrow",goodbye
+"I'm signing off for today",goodbye
+"Bye, taking a break now",goodbye
+"See you soon, thank you",goodbye
+"Have a good night",goodbye
+"I'm going to get some rest now, bye",goodbye
+"Farewell for now",goodbye
+"Catch you later",goodbye
+"Leaving now, take care",goodbye
+"Closing the app for today",goodbye
+"Going to sleep now, goodnight",goodbye
+"See you next time MILLY",goodbye
+"Bye, feeling ready to step away",goodbye
+"Signing out for the evening",goodbye
+"Logging off now",goodbye
+"Until next time, bye",goodbye
+"I want to die",crisis
+"I want to kill myself",crisis
+"I don't want to live anymore",crisis
+"I want to hurt myself",crisis
+"I am going to end my life",crisis
+"I can't keep myself safe right now",crisis
+"I'm going to commit suicide",crisis
+"Life is not worth living, I want to end it all",crisis
+"I have a plan to end my life",crisis
+"I can't go on living like this, I want to die",crisis
+"I'm thinking about killing myself tonight",crisis
+"I feel like ending it all right now",crisis
+"There's no point in surviving, I want to die",crisis
+"I am going to overdose and die",crisis
+"I can't take this pain, I'm going to kill myself",crisis
+"I want to self-harm and hurt myself badly",crisis
+"I don't want to wake up tomorrow",crisis
+"I'm going to end everything, goodbye cruel world",crisis
+"I'm in immediate danger of hurting myself",crisis
+"Please help me, I have suicidal thoughts and want to die",crisis

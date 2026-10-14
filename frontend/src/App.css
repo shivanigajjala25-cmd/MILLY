@@ -1,0 +1,549 @@
+/* MILLY - Global App Styling */
+
+:root {
+  --milly-bg: #f8f6f2;
+  --milly-card: #fffcf8;
+  --milly-text: #3f3a42;
+  --milly-muted: #817b85;
+  --milly-sage: #a8bfae;
+  --milly-sage-dark: #78947f;
+  --milly-lavender: #c9c2d8;
+  --milly-peach: #e8c6b8;
+  --milly-blue: #b8cdd8;
+  --milly-border: #e9e4dc;
+}
+
+/* Remove default Vite starter styling */
+#root {
+  min-height: 100vh;
+}
+
+/* Smooth interactions */
+button,
+a,
+input,
+textarea,
+select {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Accessible keyboard focus */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--milly-sage-dark);
+  outline-offset: 2px;
+}
+
+/* Soft selection */
+::selection {
+  background: #dce8de;
+  color: var(--milly-text);
+}
+
+/* Hide scrollbar while keeping scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Gentle fade animation */
+@keyframes milly-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-milly-fade {
+  animation: milly-fade-up 0.3s ease-out both;
+}
+
+/* Gentle breathing animation */
+@keyframes milly-breathe {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+.animate-milly-breathe {
+  animation: milly-breathe 6s ease-in-out infinite;
+}
+
+
+/* MILLY character styling */
+.milly-home-character {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  transform: scale(1.05);
+}
+
+.milly-creature {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: milly-float 4s ease-in-out infinite;
+}
+
+.milly-creature-body {
+  position: relative;
+  width: 138px;
+  height: 128px;
+  margin-top: 30px;
+  border-radius: 46% 46% 43% 43%;
+  background: linear-gradient(145deg, #e1d3f5, #c5afe4 72%, #b7a0d7);
+  box-shadow: inset -8px -9px 18px rgba(92, 63, 125, 0.12),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.3),
+    0 12px 35px rgba(183, 160, 215, 0.15);
+}
+
+.milly-tuft {
+  position: absolute;
+  z-index: 2;
+  top: -21px;
+  left: 66px;
+  width: 8px;
+  height: 27px;
+  border: 3px solid #b49acb;
+  border-radius: 8px 8px 3px 3px;
+  transform: rotate(-8deg);
+}
+
+.milly-tuft::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -3px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #cdb8e7;
+  border-radius: 50%;
+}
+
+.milly-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.milly-eyes {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 31px;
+}
+
+.milly-eye {
+  display: block;
+  width: 13px;
+  height: 20px;
+  border-radius: 50%;
+  background: #40354b;
+  position: relative;
+  transform-origin: center;
+}
+
+.milly-eye::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 4px;
+  height: 5px;
+  border-radius: 50%;
+  background: white;
+}
+
+.milly-blinking .milly-eye {
+  transform: scaleY(0.08);
+}
+
+.milly-mouth {
+  position: absolute;
+  top: 72px;
+  color: #574768;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.milly-cheek {
+  position: absolute;
+  top: 72px;
+  width: 13px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e5aecd;
+  opacity: 0.65;
+}
+
+.milly-cheek.left {
+  left: 23px;
+}
+
+.milly-cheek.right {
+  right: 23px;
+}
+
+.milly-tail {
+  display: none;
+}
+
+.milly-foot {
+  display: none;
+}
+
+.milly-home-heart {
+  position: absolute;
+  top: 115px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff6ff;
+  font-size: 24px;
+  font-weight: 700;
+  z-index: 3;
+}
+
+
+.milly-home-name {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 58px;
+  transform: translateX(-50%);
+  width: 100%;
+  margin: 0;
+  color: #d5c3ed;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 6px;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+
+.milly-thinking {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  display: flex;
+  gap: 4px;
+}
+
+.milly-thinking span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c9b9ee;
+  animation: milly-dot 1s ease-in-out infinite alternate;
+}
+
+.milly-thinking span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.milly-thinking span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.milly-listening-sparkle {
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  color: #bad3c3;
+  font-size: 25px;
+}
+
+@keyframes milly-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes milly-dot {
+  from { opacity: 0.35; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(-3px); }
+}
+
+/* Fix MILLY's missing head and body */
+.milly-home-character .milly-creature {
+  width: 190px !important;
+  height: 255px !important;
+  position: relative !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+.milly-home-character .milly-head {
+  display: block !important;
+  position: absolute !important;
+  top: 24px !important;
+  left: 20px !important;
+  width: 150px !important;
+  height: 105px !important;
+  background: linear-gradient(145deg, #e3d5f6, #c8b4e5 72%, #b8a0d8) !important;
+  border-radius: 48% 48% 46% 46% !important;
+  box-shadow: inset 0 5px 12px #f0e5ff80, 0 8px 20px #120c1c20 !important;
+  z-index: 2 !important;
+}
+
+.milly-home-character .milly-body {
+  display: block !important;
+  position: absolute !important;
+  top: 122px !important;
+  left: 43px !important;
+  width: 104px !important;
+  height: 61px !important;
+  background: linear-gradient(145deg, #d7c3ed, #bca3d9) !important;
+  border-radius: 45% 45% 48% 48% !important;
+  z-index: 1 !important;
+}
+
+.milly-home-character .milly-ear {
+  display: block !important;
+  z-index: 3 !important;
+}
+
+.milly-home-character .milly-face {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+}
+
+.milly-home-character .milly-eyes {
+  display: flex !important;
+}
+
+.milly-home-character .milly-cheek {
+  display: block !important;
+}
+
+.milly-home-character .milly-mouth {
+  display: block !important;
+}
+
+.milly-home-character .milly-antenna {
+  display: block !important;
+}
+
+.milly-home-character .milly-home-name {
+  display: block !important;
+  position: relative !important;
+  margin-top: 0 !important;
+}
+
+/* MILLY character details and proportions */
+.milly-home-character {
+  width: 220px;
+  min-height: 265px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+}
+
+.milly-home-character .milly-creature {
+  width: 190px;
+  height: 230px;
+  position: relative;
+  flex-shrink: 0;
+  overflow: visible;
+  animation: milly-float 4s ease-in-out infinite;
+}
+
+.milly-home-character .milly-antenna {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 91px;
+  width: 8px;
+  height: 24px;
+  border: 3px solid #bda6d5;
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  transform: rotate(-8deg);
+}
+
+.milly-home-character .milly-antenna span {
+  position: absolute;
+  top: -6px;
+  left: -5px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid #d6c0ed;
+  border-radius: 50%;
+}
+
+.milly-home-character .milly-head {
+  position: absolute;
+  z-index: 2;
+  top: 22px;
+  left: 20px;
+  width: 150px;
+  height: 105px;
+  border-radius: 48% 48% 46% 46%;
+  background: linear-gradient(145deg, #e3d5f6, #c8b4e5 72%, #b8a0d8);
+  box-shadow: inset 0 5px 12px #f0e5ff80,
+    0 8px 20px #120c1c20;
+}
+
+.milly-home-character .milly-ear {
+  position: absolute;
+  top: 34px;
+  width: 28px;
+  height: 38px;
+  border-radius: 50%;
+  background: #c5aee0;
+  z-index: -1;
+}
+
+.milly-home-character .milly-ear-left {
+  left: -12px;
+  transform: rotate(-20deg);
+}
+
+.milly-home-character .milly-ear-right {
+  right: -12px;
+  transform: rotate(20deg);
+}
+
+.milly-home-character .milly-face {
+  position: absolute;
+  inset: 0;
+}
+
+.milly-home-character .milly-eyes {
+  position: absolute;
+  top: 41px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.milly-home-character .milly-eye {
+  display: block;
+  width: 14px;
+  height: 20px;
+  border-radius: 50%;
+  background: #40354b;
+  transition: transform 100ms ease;
+}
+
+.milly-home-character .milly-eye::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 6px;
+  margin: 3px;
+  border-radius: 50%;
+  background: white;
+}
+
+.milly-home-character .milly-blinking .milly-eye {
+  transform: scaleY(0.08);
+}
+
+.milly-home-character .milly-cheek {
+  position: absolute;
+  top: 69px;
+  width: 13px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e5aecd;
+}
+
+.milly-home-character .milly-cheek.left {
+  left: 25px;
+}
+
+.milly-home-character .milly-cheek.right {
+  right: 25px;
+}
+
+.milly-home-character .milly-mouth {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #574768;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.milly-home-character .milly-body {
+  position: absolute;
+  z-index: 1;
+  top: 122px;
+  left: 43px;
+  width: 104px;
+  height: 65px;
+  border-radius: 45% 45% 48% 48%;
+  background: linear-gradient(145deg, #d7c3ed, #bca3d9);
+  box-shadow: inset 0 5px 12px #f0e5ff55;
+}
+
+.milly-home-character .milly-heart {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff6ff;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.milly-home-character .milly-thinking {
+  position: absolute;
+  right: 0;
+  top: 35px;
+  display: flex;
+  gap: 4px;
+}
+
+.milly-home-character .milly-listening-sparkle {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  color: #bad3c3;
+  font-size: 25px;
+}

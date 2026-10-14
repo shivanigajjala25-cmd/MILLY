@@ -1,0 +1,19 @@
+# Frontend generated files
+frontend/node_modules/
+frontend/dist/
+
+# Backend generated files
+backend/target/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
