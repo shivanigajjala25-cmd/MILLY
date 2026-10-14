@@ -10,4 +10,4 @@ WORKDIR /app
 COPY --from=build /workspace/target/backend-0.0.1-SNAPSHOT.jar /app/app.jar
 ENV DATA_DIR=/data
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["sh", "-c", "mkdir -p \"${DATA_DIR:-/data}\" && exec java -jar /app/app.jar"]
